@@ -3,8 +3,10 @@ container = document.querySelector('.container')
 
 let containerText = '',
   timeTaken,
-  fake = 'These were fake:\n',
+  fake = 'These passed but were fake:\n',
+  fakeInitLen = fake.length
   correct = 'These were correct:\n',
+  correctInitLen = correct.length
   iteration = 0
 
 function runMain() {
@@ -22,8 +24,13 @@ function runMain() {
     sum
 
 
-  for (let i = 0; i < digits; i++) {
-    put()
+  if (iteration != 40) {
+    for (let i = 0; i < digits; i++) {
+      put()
+    }
+  } else {
+    numbers = [9,9,9,9,9,9,9,9,9]
+    numbers = numbers.map(num => Math.sqrt(num))
   }
 
   function put() {
@@ -37,7 +44,7 @@ function runMain() {
   }
   numbers = numbers.map(sq => Math.pow(sq, 2))
   numbersStr = numbers.toString()
-  containerText += `<h1> ${numbersStr} </h2>`
+  containerText += `<h1> ${numbersStr.replace(/,/gi, ', ')} </h2>`
   getHash(numbersStr)
 
   function getHash(text) {
@@ -74,8 +81,11 @@ function runMain() {
   function checkIfEqual() {
     sum = ifChecked.reduce((a, b) => a + b, 0)
 
-    containerText += '<h5 class="text-muted mb-5">' + (sum === (ifChecked[0] * ifChecked.length) ? 'true' : 'false') + '</h5>'
-    sum === (ifChecked[0] * ifChecked.length) ? extensive() : ''
+    if (sum === (ifChecked[0] * ifChecked.length)) {
+      extensive()
+    } else {
+      containerText += `<h5 class="text-danger mb-5">false</h5>`
+    }
   }
 
   function extensive() {
@@ -83,8 +93,10 @@ function runMain() {
 
     if (extensiveObj['1'] === false) {
       fake += `No. ${iteration}\n`
+      containerText += '<h5 class="text-info mb-5">passed.. but failed</h5>'
     } else {
       correct += `No. ${iteration}\n`
+      containerText += '<h5 class="text-success mb-5">true</h5>'
     }
 
   }
@@ -107,6 +119,6 @@ function runFor() {
   document.querySelector('.btn').innerHTML = 'Process 100 Arrays (Again!)'
   timeTaken = Date.now() - timeTaken
   document.querySelector('.time-taken').innerHTML = `${timeTaken}ms (${timeTaken / 1000}s)`
-  fake.length == 17 ? '' : alert(fake)
-  correct.length == 20 ? '' : alert(correct)
+  fake.length == fakeInitLen ? '' : alert(fake)
+  correct.length == correctInitLen ? '' : alert(correct)
 }
