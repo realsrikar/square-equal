@@ -1,0 +1,25 @@
+body {
+	min-height: 100vh;
+}
+
+* {
+	word-break: break-all
+}
+
+h1,
+h2 {
+	font-weight: normal;
+}
+.init .container {
+	display: none;
+}
+
+h5 {
+	margin: 0;
+	text-transform: uppercase;
+	color: #444;
+}
+
+::selection {
+	background-color: rgba(0, 123, 255, 0.2666)
+}
