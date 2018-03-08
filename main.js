@@ -24,14 +24,9 @@ function runMain() {
     sum
 
 
-  if (iteration != 40) {
     for (let i = 0; i < digits; i++) {
       put()
     }
-  } else {
-    numbers = [9,9,9,9,9,9,9,9,9]
-    numbers = numbers.map(num => Math.sqrt(num))
-  }
 
   function put() {
     cur = Math.round(Math.random() * max - 1) + 1;
