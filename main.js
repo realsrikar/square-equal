@@ -111,7 +111,7 @@ function runFor() {
   container.innerHTML += containerText;
   document.body.classList.remove('d-flex', 'init')
   document.querySelector('.btn').classList.add('d-block')
-  document.querySelector('.btn').innerHTML = 'Process 100 Arrays (Again!)'
+  document.querySelector('.btn').innerHTML = 'Process 100 Guesses (Again!)'
   timeTaken = Date.now() - timeTaken
   document.querySelector('.time-taken').innerHTML = `${timeTaken}ms (${timeTaken / 1000}s)`
   fake.length == fakeInitLen ? '' : alert(fake)
