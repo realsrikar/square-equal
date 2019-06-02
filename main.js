@@ -37,7 +37,7 @@ function runMain() {
       put()
     }
   }
-  numbers = numbers.map(sq => Math.pow(sq, 2))
+  numbers = numbers.map(sq => Math.pow(sq, 3))
   numbersStr = numbers.toString()
   containerText += `<h1> ${numbersStr.replace(/,/gi, ', ')} </h2>`
   getHash(numbersStr)
