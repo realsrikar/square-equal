@@ -104,7 +104,7 @@ runner.addEventListener('click', runFor)
 function runFor() {
   timeTaken = Date.now()
   containerText = ''
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 100; i++) {
     runMain()
   }
 
